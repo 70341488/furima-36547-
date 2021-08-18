@@ -29,7 +29,7 @@ Column                        | Type            | Options                       
 | item_condition_id            |  integer       | null: false                            |
 | delivery_fee_id                |  integer        | null: false                           |
 | delivery_zone_id             |  integer       | null: false                            |
-| category _id                    |  integer       | null: false                           |
+| category_id                    |  integer       | null: false                           |
 | delivery_time_id               | integer         | null: false                            |
 
 Association
@@ -56,10 +56,10 @@ Column                          | Type          | Options                       
 | -------------------------------- | ----------------| -----------------------------------------------|
 | purchase                      | references | null: false, foreign_key: true          |
 | post_number                | string       | null: false                                     |
-| delivery_zone_id              | integer        | null: false                                     |
+| delivery_zone_id              | integer        | null: false                                 |
 | municipalities               |  string         | null: false                                     |
 | address                        |  string        | null: false                                     |
-| Building_name              |  string        |                                                     |
+| building_name              |  string        |                                                     |
 | phone_number              |  string        | null: false                                     |
 
 Association
