@@ -26,11 +26,11 @@ Column                        | Type            | Options                       
 | item_name                 |  string          | null: false                           |
 | explanation                |  text             | null: false                           |
 | price                          |  integer        | null: false                           |
-| item_condition            |  integer       | null: false                            |
+| item_condition_id            |  integer       | null: false                            |
 | delivery_fee_id                |  integer        | null: false                           |
 | delivery_zone_id             |  integer       | null: false                            |
-| category                     |  integer       | null: false                           |
-| image                         |  string         | null: false                            |
+| category _id                    |  integer       | null: false                           |
+| delivery_time_id               | integer         | null: false                            |
 
 Association
 
@@ -56,7 +56,7 @@ Column                          | Type          | Options                       
 | -------------------------------- | ----------------| -----------------------------------------------|
 | purchase                      | references | null: false, foreign_key: true          |
 | post_number                | string       | null: false                                     |
-| prefectures                  |  string        | null: false                                     |
+| prefectures_id               |  string        | null: false                                     |
 | municipalities               |  string         | null: false                                     |
 | address                        |  string        | null: false                                     |
 | Building_name              |  string        |                                                     |
