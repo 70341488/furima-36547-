@@ -101,9 +101,9 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include('Family name kana Family_namekana kana Full-width katakana characters')
     end
     it 'emailは@が含まれていないと登録できないこと' do
-      another_user.email = @user.email
-      another_user.valid?
-      expect(another_user.errors.full_messages).to include('Email has already been taken')
+      @user.email = 'hoge.com'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Email is invalid")
     end
     it 'passwordは数字のみ、全角だと登録できないこと' do
       @user.password = 'aaaaaa'
