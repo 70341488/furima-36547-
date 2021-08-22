@@ -1,14 +1,20 @@
 class Itemselect < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :genre
-  belongs_to :condition
-  belongs_to :delivery
-  belongs_to :prefectures
-  belongs_to :time
+  belongs_to :category
+  belongs_to :item_condition
+  belongs_to :delivery_fee
+  belongs_to :delivery_zone
+  belongs_to :delivery_time
 
-  validates :title, :text, presence: true
 
-  validates :genre_id, numericality: { other_than: 1 } 
-
-  validates :genre_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :category_id, numericality: { other_than: 1 } 
+  validates :category_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :item_condition, numericality: { other_than: 1 } 
+  validates :item_condition, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :delivery_fee, numericality: { other_than: 1 } 
+  validates :delivery_fee, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :delivery_zone, numericality: { other_than: 1 } 
+  validates :delivery_zone, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :delivery_time, numericality: { other_than: 1 } 
+  validates :delivery_time, numericality: { other_than: 1 , message: "can't be blank"}
 end
