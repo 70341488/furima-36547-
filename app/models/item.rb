@@ -21,12 +21,12 @@ class Item < ApplicationRecord
 
   validates :category_id, numericality: { other_than: 1 } 
   validates :category_id, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :item_condition, numericality: { other_than: 1 } 
-  validates :item_condition, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :delivery_fee, numericality: { other_than: 1 } 
-  validates :delivery_fee, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :delivery_zone, numericality: { other_than: 1 } 
-  validates :delivery_zone, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :delivery_time, numericality: { other_than: 1 } 
-  validates :delivery_time, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :item_condition_id, numericality: { other_than: 1 } 
+  validates :item_condition_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :delivery_fee_id, numericality: { other_than: 1 } 
+  validates :delivery_fee_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :delivery_zone_id, numericality: { other_than: 1 } 
+  validates :delivery_zone_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :delivery_time_id, numericality: { other_than: 1 } 
+  validates :delivery_time_id, numericality: { other_than: 1 , message: "can't be blank"}
 end
