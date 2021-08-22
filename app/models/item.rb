@@ -11,7 +11,6 @@ class Item < ApplicationRecord
   validates :category_id, presence: true
   validates :delivery_time_id, presence: true
 
-  end
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :item_condition
