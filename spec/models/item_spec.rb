@@ -68,8 +68,14 @@ RSpec.describe Item, type: :model do
                                                       'Price is not a number')
       end
 
-      it '売価格は、¥300~¥9,999,999の間のみ保存可能であること' do
-        @item.price = '100'
+      it '販売価格は、¥300円未満だと登録出来ないこと' do
+        @item.price = 100
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price is not included in the list')
+      end
+      
+      it '販売売価格は、¥10000000円以上だと登録出来ないこと' do
+        @item.price = 100000000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not included in the list')
       end
