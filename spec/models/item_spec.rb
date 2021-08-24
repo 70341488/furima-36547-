@@ -56,7 +56,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'delivery_zone_idが1だと登録できない' do
-        @item.delivery_zone_id= 1
+        @item.delivery_zone_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery zone can't be blank")
       end
@@ -67,7 +67,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Delivery time can't be blank")
       end
 
-       it '商品の状態についての情報が必須であること' do
+      it '商品の状態についての情報が必須であること' do
         @item.item_condition_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Item condition can't be blank")
@@ -103,9 +103,9 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not included in the list')
       end
-      
+
       it '販売売価格は、¥10000000円以上だと登録出来ないこと' do
-        @item.price = 100000000
+        @item.price = 100_000_000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not included in the list')
       end
@@ -130,8 +130,8 @@ RSpec.describe Item, type: :model do
       it '販売者がいないと登録できない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User must exist")
+        expect(@item.errors.full_messages).to include('User must exist')
+      end
     end
   end
-end
 end
