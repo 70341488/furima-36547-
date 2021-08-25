@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
 
   def destroy
   
-    if @item.user_id == current_user.id
+    
       @item.destroy
       redirect_to action: :index
     end
@@ -59,4 +59,4 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-end
+
