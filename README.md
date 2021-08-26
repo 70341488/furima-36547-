@@ -37,7 +37,7 @@ Association
 ・belongs_to :user
 ・has_one :purchase
 
-## purchases
+## purchase
 
 Column                        | Type            | Options                                     |
 | -------------------------------|  -----------------|  --------------------------------------------|
@@ -50,7 +50,7 @@ Association
 ・belongs_to :item
 ・has_one :residence
 
-## residences
+## residence
 
 Column                          | Type          | Options                                       |
 | -------------------------------- | ----------------| -----------------------------------------------|
