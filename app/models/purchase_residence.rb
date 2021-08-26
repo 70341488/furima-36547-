@@ -12,4 +12,10 @@ class PurchaseResidence
     validates :phone_number,format: {with:  /\A[0-90-9]\d{11}\z/, message: "can't be blank"}
   end
     validates :delivery_zone_id, numericality: { other_than: 1, message: "can't be blank" }
+
+  def save
+      purchase = Purchase.create(user: user, item: item)
+
+      Residence.create(purchase: purchase, delivery_zone_id: delivery_zone_id, building_name: building_name, post_number: post_number, municipalities: municipalities, address: address, phone_number: phone_number, purchase_id: purchase_id)
+  end
 end
