@@ -24,12 +24,10 @@ class ItemsController < ApplicationController
   end
 
   def edit
-
     redirect_to action: :index unless user_signed_in? && current_user.id == @item.user.id
   end
 
   def update
-    
     if @item.update(item_params)
       redirect_to action: :show
     else
@@ -38,25 +36,22 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-  
-    
-      @item.destroy
-      redirect_to action: :index
-    end
+    @item.destroy
+    redirect_to action: :index
   end
+end
 
   private
 
-  def item_params
-    params.require(:item).permit(:item_name, :explanation, :price, :item_condition_id, :delivery_fee_id, :delivery_zone_id,
-                                 :category_id, :delivery_time_id, :image).merge(user_id: current_user.id)
-  end
+def item_params
+  params.require(:item).permit(:item_name, :explanation, :price, :item_condition_id, :delivery_fee_id, :delivery_zone_id,
+                               :category_id, :delivery_time_id, :image).merge(user_id: current_user.id)
+end
 
-  def move_to_index
-    redirect_to action: :index unless user_signed_in?
-  end
+def move_to_index
+  redirect_to action: :index unless user_signed_in?
+end
 
-  def set_item
-    @item = Item.find(params[:id])
-  end
-
+def set_item
+  @item = Item.find(params[:id])
+end
