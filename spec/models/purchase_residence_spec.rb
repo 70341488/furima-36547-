@@ -7,6 +7,11 @@ RSpec.describe PurchaseResidence, type: :model do
       @purchase_residence = FactoryBot.build(:purchase_residence, user_id: user.id)
     end
 
+    before do
+      item = FactoryBot.create(:item)
+      @purchase_residence = FactoryBot.build(:purchase_residence, item_id: item.id)
+    end
+
     context '内容に問題ない場合' do
       it 'すべての値が正しく入力されていれば保存できること' do
         expect(@purchase_residence).to be_valid
