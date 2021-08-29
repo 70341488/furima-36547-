@@ -1,4 +1,5 @@
 class PurchasesController < ApplicationController
+  before_action :sold_out_item, only: [:index]
 
 
 def index
@@ -34,4 +35,8 @@ def pay_item
       )
     end
 
+    def sold_out_item
+      redirect_to root_path if @item.purchase.present?
+     end
+     
 end
