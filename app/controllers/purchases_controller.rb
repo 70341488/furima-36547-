@@ -5,7 +5,7 @@ class PurchasesController < ApplicationController
 
   def index
     @purchase_residence = PurchaseResidence.new
-    unless user_signed_in? && current_user.id == @item.user.id && @item.purchase == nil
+    unless  current_user.id || @item.user.id || @item.purchase == nil
     redirect_to root_path
   end
   end
