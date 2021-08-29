@@ -1,9 +1,13 @@
 class PurchasesController < ApplicationController
-  before_action :sold_out_item, only: [:index]
+  before_action :authenticate_user!, only: [:index]
+
 
   def index
     @item = Item.find(params[:item_id])
     @purchase_residence = PurchaseResidence.new
+    unless user_signed_in? && current_user.id == @item.user.id && @item.purchase == nil
+    redirect_to root_path
+  end
   end
 
   def create
@@ -35,7 +39,4 @@ class PurchasesController < ApplicationController
     )
   end
 
-  def sold_out_item
-    redirect_to root_path if @item.purchase.present?
-  end
 end
