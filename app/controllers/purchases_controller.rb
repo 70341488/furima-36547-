@@ -5,10 +5,11 @@ class PurchasesController < ApplicationController
 
   def index
     @purchase_residence = PurchaseResidence.new
-    unless  current_user.id != @item.user.id || @item.purchase == nil
+    if  @item.purchase != nil  || current_user.id == @item.user.id
     redirect_to root_path
   end
   end
+  
 
   def create
     @purchase_residence = PurchaseResidence.new(purchase_params)

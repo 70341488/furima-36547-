@@ -1,7 +1,7 @@
 class PurchaseResidence
   include ActiveModel::Model
   attr_accessor :user_id, :item_id, :delivery_zone_id, :building_name, :post_number, :municipalities, :address,
-                :phone_number
+                :phone_number, :token
 
   with_options presence: true do
     validates :user_id
